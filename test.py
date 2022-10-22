@@ -1,23 +1,47 @@
-from pydoc import plain
 
+class meat:
 
-class Calculator:
-
-    def calc_plus(num1, num2):
-        print("Ответ:", num1 + num2)
+     def __init__(self, name, amount):
+        self.name = name
+        print("Создано мясо ", name)
+        self.amount = amount
     
-    def calc_mines(num3, num4):
-        print("Ответ:", num3 - num4)
-    
-    def calc_multiply(num5, num6):
-        print("Ответ:", num5 * num6)
-    
-    def calc_divide(num7, num8):
-        print("Ответ:", num7 % num8)
+     def info(self):
+        print(f"{self.name} лежит, пищевая ценность: {self.amount}")
 
-cals = Calculator()
+    
+class dog:
 
-Calculator.calc_plus(2, 7)
-Calculator.calc_mines(17, 6)
-Calculator.calc_multiply(6, 8)
-Calculator.calc_divide(15, 4)
+    def __init__(self, n, h, l):
+        self.name = n
+        self.health = h
+        self.live = l
+        print("Появилась новая собока с именем", self.name)
+
+    def eating(self, eat_meat):
+        print(f"{self.name} кушает")
+        self.health += eat_meat.amount
+        if (self.health > 35):
+            print(f"{self.name} наелся. Количество жизней увеличилось.")
+            self.live += 1
+            self.health = 20
+        if (self.health < 0):
+            print("Отравился или голод")
+            self.live -= 1
+        print(f"Здоровье стало ({self.health})")
+
+    def info(self):
+        print(f"Здоровье: {self.health}")
+        print(f"Жизней: {self.live}")
+
+    
+
+Bob = dog("Боб", 35, 1)
+EAT1 = meat("Мясо", 20)
+EAT2 = meat("Замороженное мясо", 10)
+EAT3 = meat("Стейк", 50)
+EAT4 = meat("ТУЛОЕ МЯСО", -20)
+
+Bob.info()
+Bob.eating(EAT3)
+Bob.info()
