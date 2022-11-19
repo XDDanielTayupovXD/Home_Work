@@ -1,0 +1,7 @@
+import random
+
+gg = random.randrange(11)
+while True:
+    int(input("Введите число:"))
+    if int(input("Введите число: ")) == gg:
+        print("ВЕРНО!!!!!!!!!!!!!!!")
